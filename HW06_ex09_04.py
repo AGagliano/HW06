@@ -10,18 +10,39 @@
 # alfalfa?"
 #   - write function to assist you
 #   - type favorite sentence(s) here:
-#       1:
-#       2:
-#       3:
+#       1: he fell off
+#       2: elf, eh?
+#       3: hello hellhole
 ##############################################################################
 # Imports
 
 # Body
+def uses_only(word, s):
+	'''Takes a word and a string and returns True if the word contains
+	only letters in the list.
+	'''
+	s_list = []
+	for char in s:
+		s_list.append(char)
+	for letter in word:
+		if letter not in s_list:
+			return False
+	return True
+
+def make_sentence(file_, s):
+	
+	with open(file_) as f:
+		for line in f:
+			if uses_only(line.strip(), s) == True:
+				print line.strip()
 
 
 ##############################################################################
 def main():
-    pass  # Call your function(s) here.
+      # Call your function(s) here.
+
+    print uses_only('andrea', 'aendr')
+    print uses_only('computer', 'phone')
 
 if __name__ == '__main__':
     main()
